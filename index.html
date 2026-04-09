@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Saima 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5eef8 50%, #fef5f8 100%);
+            min-height: 100vh;
+            color: #4a4a4a;
+            line-height: 1.7;
+        }
+
+        /* Lock Screen */
+        .lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #d4c5c9 0%, #b8a9c0 40%, #9b8aa8 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1.2s ease, visibility 1.2s ease;
+        }
+
+        .lock-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .lock-container {
+            background: rgba(255, 255, 255, 0.97);
+            padding: 55px 45px;
+            border-radius: 28px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            max-width: 420px;
+            width: 88%;
+            animation: gentleFloat 4s ease-in-out infinite;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .lock-icon {
+            font-size: 48px;
+            margin-bottom: 22px;
+            animation: softPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes softPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.85; }
+        }
+
+        .lock-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            color: #6b5b7a;
+            margin-bottom: 18px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .lock-question {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 28px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .lock-input {
+            width: 100%;
+            padding: 16px 28px;
+            font-size: 16px;
+            border: 2px solid #e8dff0;
+            border-radius: 45px;
+            outline: none;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.4s ease;
+            background: #fdfdfd;
+            letter-spacing: 1px;
+        }
+
+        .lock-input:focus {
+            border-color: #9b8aa8;
+            box-shadow: 0 0 25px rgba(155, 138, 168, 0.15);
+        }
+
+        .lock-hint {
+            margin-top: 14px;
+            font-size: 13px;
+            color: #999;
+            font-style: italic;
+            letter-spacing: 0.3px;
+        }
+
+        .lock-error {
+            margin-top: 14px;
+            color: #c77b7b;
+            font-size: 13px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            font-weight: 400;
+        }
+
+        .lock-error.show {
+            opacity: 1;
+        }
+
+        .lock-btn {
+            margin-top: 28px;
+            padding: 14px 48px;
+            font-size: 14px;
+            background: linear-gradient(135deg, #9b8aa8 0%, #b8a9c0 100%);
+            color: white;
+            border: none;
+            border-radius: 45px;
+            cursor: pointer;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(155, 138, 168, 0.3);
+        }
+
+        .lock-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(155, 138, 168, 0.4);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+
+        .main-content.show {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5eef8 40%, #fef5f8 100%);
+        }
+
+        .floating-decorations {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .decoration {
+            position: absolute;
+            font-size: 22px;
+            animation: gentleFloatUp 8s ease-in-out infinite;
+            opacity: 0.35;
+        }
+
+        @keyframes gentleFloatUp {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 0.35;
+            }
+            50% { 
+                transform: translateY(-25px) rotate(180deg); 
+                opacity: 0.65;
+            }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #d4af37 0%, transparent 70%);
+            border-radius: 50%;
+            animation: softSparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes softSparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 0.8; transform: scale(1); }
+        }
+
+        .birthday-cake {
+            font-size: 85px;
+            margin-bottom: 25px;
+            animation: elegantBounce 3s ease-in-out infinite;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.08));
+        }
+
+        @keyframes elegantBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-12px) scale(1.03); }
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 68px;
+            color: #8b6b8b;
+            margin-bottom: 18px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: softGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes softGlow {
+            from { 
+                text-shadow: 0 0 8px rgba(139, 107, 139, 0.15), 
+                         0 0 16px rgba(139, 107, 139, 0.1); 
+            }
+            to { 
+                text-shadow: 0 0 12px rgba(139, 107, 139, 0.25), 
+                         0 0 24px rgba(139, 107, 139, 0.15); 
+            }
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #9b8aa8;
+            margin-bottom: 12px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            font-style: italic;
+        }
+
+        .from-text {
+            font-size: 17px;
+            color: #888;
+            margin-top: 22px;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        .from-text span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: #8b6b8b;
+            font-weight: 500;
+        }
+
+        .date-badge {
+            margin-top: 28px;
+            padding: 11px 32px;
+            background: linear-gradient(135deg, #d4af37 0%, #e6c566 100%);
+            color: white;
+            border-radius: 45px;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            box-shadow: 0 8px 28px rgba(212, 175, 55, 0.25);
+            animation: gentlePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 45px;
+            font-size: 20px;
+            color: #bbb;
+            animation: scrollBounce 2.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(12px); }
+        }
+
+        /* Message Section */
+        .message-section {
+            padding: 110px 20px;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .message-container {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            color: #8b6b8b;
+            margin-bottom: 55px;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+        }
+
+        .message-card {
+            background: linear-gradient(135deg, #faf8f5 0%, #fdf5f8 100%);
+            padding: 55px 45px;
+            border-radius: 24px;
+            box-shadow: 0 18px 55px rgba(139, 107, 139, 0.1);
+            border: 1px solid #f0e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-card::before {
+            content: '"';
+            position: absolute;
+            top: 18px;
+            left: 28px;
+            font-size: 100px;
+            color: #f0e0e8;
+            font-family: 'Georgia', serif;
+            line-height: 1;
+            font-weight: 300;
+        }
+
+        .funny-message {
+            font-size: 17px;
+            line-height: 2;
+            color: #5a5a5a;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.3px;
+        }
+
+        .funny-message p {
+            margin-bottom: 24px;
+        }
+
+        .highlight {
+            color: #8b6b8b;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .emoji-fun {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+
+        /* Reasons Section */
+        .reasons-section {
+            padding: 110px 20px;
+            background: linear-gradient(135deg, #f8f5f9 0%, #f5f0f5 100%);
+        }
+
+        .reasons-grid {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 28px;
+            margin-top: 55px;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 38px 28px;
+            border-radius: 20px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .reason-card:hover::after {
+            left: 100%;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-8px);
+            border-color: #e8dff0;
+            box-shadow: 0 20px 50px rgba(139, 107, 139, 0.12);
+        }
+
+        .reason-icon {
+            font-size: 42px;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .reason-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px;
+            color: #6b5b7a;
+            margin-bottom: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .reason-text {
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #777;
+            letter-spacing: 0.2px;
+        }
+
+        /* Photo Gallery */
+        .gallery-section {
+            padding: 110px 20px;
+            background: white;
+        }
+
+        .gallery-intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 60px;
+            font-size: 16.5px;
+            color: #777;
+            line-height: 1.9;
+            letter-spacing: 0.3px;
+        }
+
+        .gallery-container {
+            max-width: 1350px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #f0e8f0 0%, #e8dff0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:nth-child(odd) {
+            background: linear-gradient(135deg, #e8f4f4 0%, #f0e8ec 100%);
+        }
+
+        .gallery-item:nth-child(3n) {
+            background: linear-gradient(135deg, #fef5ee 0%, #fce8dc 100%);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-placeholder {
+            text-align: center;
+            color: #aaa;
+            padding: 20px;
+        }
+
+        .gallery-placeholder-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            opacity: 0.4;
+        }
+
+        .gallery-placeholder-text {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .photo-number {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255,255,255,0.92);
+            color: #8b6b8b;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            font-size: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Wishes Section */
+        .wishes-section {
+            padding: 110px 20px;
+            background: linear-gradient(135deg, #9b8aa8 0%, #b8a9c0 50%, #c9b8cc 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wishes-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.06;
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm-40 0c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .wishes-content {
+            position: relative;
+            z-index: 1;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .wishes-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 54px;
+            margin-bottom: 45px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .wish-item {
+            font-size: 19px;
+            margin: 20px 0;
+            padding: 18px 24px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            transition: all 0.4s ease;
+            letter-spacing: 0.3px;
+            font-weight: 300;
+        }
+
+        .wish-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(8px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 65px 20px;
+            background: linear-gradient(135deg, #3d2d33 0%, #5a4249 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .footer-heart {
+            font-size: 42px;
+            animation: heartbeat 2s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.15); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+
+        .footer-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin-bottom: 14px;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+        }
+
+        .footer-subtext {
+            font-size: 15px;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
+        }
+
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 46px;
+            }
+            
+            .hero-subtitle {
+                font-size: 19px;
+            }
+            
+            .birthday-cake {
+                font-size: 68px;
+            }
+            
+            .section-title {
+                font-size: 38px;
+            }
+            
+            .funny-message {
+                font-size: 15.5px;
+            }
+            
+            .wishes-title {
+                font-size: 38px;
+            }
+            
+            .wish-item {
+                font-size: 16.5px;
+            }
+            
+            .lock-title {
+                font-size: 28px;
+            }
+            
+            .lock-question {
+                font-size: 15.5px;
+            }
+
+            .from-text {
+                font-size: 15px;
+            }
+
+            .from-text span {
+                font-size: 24px;
+            }
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.96);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 36px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.4s;
+            opacity: 0.85;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lock Screen -->
+    <div class="lock-screen" id="lockScreen">
+        <div class="lock-container">
+            <div class="lock-icon">🔐</div>
+            <h1 class="lock-title">Secret Birthday Message!</h1>
+            <p class="lock-question">Who is the best?</p>
+            <input type="text" class="lock-input" id="answerInput" placeholder="Enter your answer..." autocomplete="off">
+            <p class="lock-hint">💡 Hint: The name starts with P</p>
+            <p class="lock-error" id="errorMsg">Oops! That's not right. Try again! 🤔</p>
+            <button class="lock-btn" onclick="checkAnswer()">Unlock ✨</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="floating-decorations" id="decorations"></div>
+            <div class="birthday-cake">🎂</div>
+            <h1 class="hero-title">Happy Birthday Saima!</h1>
+            <p class="hero-subtitle">To Someone Absolutely Amazing ✨</p>
+            <p class="from-text">With lots of love from<br><span>Puja</span> 💕</p>
+            <div class="date-badge">🎉 April 9th 🎉</div>
+            <div class="scroll-indicator">↓ Scroll Down ↓</div>
+        </section>
+
+        <!-- Message Section -->
+        <section class="message-section">
+            <div class="message-container">
+                <h2 class="section-title">A Special Message For You</h2>
+                <div class="message-card">
+                    <div class="funny-message">
+                        <p>
+                            Happy Birthday to my favorite person who's <span class="highlight">legally obligated</span> to be awesome today! 🎉
+                        </p>
+                        <p>
+                            You know what's funny? Even though you're miles away in the USA now, and we share the same birthday, you still feel so close to my heart. I spent hours trying to write something profound... but then I realized – <span class="highlight">you already know how special you are</span>. So instead, here are some truths: <span class="emoji-fun">✨</span>
+                        </p>
+                        <p>
+                            Truth #1: You are, and always will be, one of the <span class="highlight">BEST parts of my life</span>. Distance doesn't change that – it only makes me cherish our memories more deeply. <span class="emoji-fun">💖</span>
+                        </p>
+                        <p>
+                            Truth #2: My life was complete before, but having you in it made it extraordinary. Now that you're far away, those memories we created together have become my most treasured possessions – like a <span class="highlight">collection of precious moments</span> I carry with me every day. <span class="emoji-fun">🌟</span>
+                        </p>
+                        <p>
+                            Truth #3: You make ordinary days feel like celebrations, boring moments feel like adventures, and even from across the ocean, you still manage to make me smile. That's the kind of magic only <span class="highlight">YOU possess</span>. <span class="emoji-fun">🌍💕</span>
+                        </p>
+                        <p>
+                            So here's to another year of you being <span class="highlight">absolutely incredible</span>, me being grateful for every memory we share, and knowing that no matter the distance, you'll always be one of the best parts of my life! <span class="emoji-fun">🥳💌</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reasons Section -->
+        <section class="reasons-section">
+            <div style="max-width: 1050px; margin: 0 auto;">
+                <h2 class="section-title" style="text-align: center;">Why You're The Best</h2>
+                <div class="reasons-grid">
+                    <div class="reason-card">
+                        <span class="reason-icon">🌟</span>
+                        <h3 class="reason-title">You Light Up Every Room</h3>
+                        <p class="reason-text">Literally. I think you might actually be part sunshine. Your presence makes everything brighter and better.</p>
+                    </div>
+                    <div class="reason-card">
+                        <span class="reason-icon">😂</span>
+                        <h3 class="reason-title">Your Laugh is Contagious</h3>
+                        <p class="reason-text">When you laugh, I laugh. When you snort-laugh at something ridiculous, I'm done for. It's the best sound ever.</p>
+                    </div>
+                    <div class="reason-card">
+                        <span class="reason-icon">🤗</span>
+                        <h3 class="reason-title">You Just "Get" Me</h3>
+                        <p class="reason-text">No explanations needed. No awkward silences. Just pure understanding and unconditional support. Rare find!</p>
+                    </div>
+                    <div class="reason-card">
+                        <span class="reason-icon">💪</span>
+                        <h3 class="reason-title">You're Stronger Than You Know</h3>
+                        <p class="reason-text">You've overcome so much and still manage to be kind, loving, and absolutely wonderful. That's superhero level stuff.</p>
+                    </div>
+                    <div class="reason-card">
+                        <span class="reason-icon">🎨</span>
+                        <h3 class="reason-title">You Make Life Colorful</h3>
+                        <p class="reason-text">Boring? Not with you around. Every day is an adventure, every moment is a story, and I love every single one.</p>
+                    </div>
+                    <div class="reason-card">
+                        <span class="reason-icon">👑</span>
+                        <h3 class="reason-title">You're Simply Irreplaceable</h3>
+                        <p class="reason-text">There's only one you in this entire universe, and I'm so incredibly lucky to have you in my life. Forever grateful!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery -->
+        <section class="gallery-section">
+            <div class="gallery-container">
+                <h2 class="section-title" style="text-align: center;">Our Beautiful Memories</h2>
+                <p class="gallery-intro">
+                    Every picture tells a story of laughter, love, and unforgettable moments. These memories are treasures I hold close to my heart, especially now that distance separates us. Here are some of my favorites featuring the most amazing person I know! 💕
+                </p>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1084.JPG.jpeg" alt="Memory 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 1</div>
+                        </div>
+                        <span class="photo-number">1</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1085.JPG.jpeg" alt="Memory 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 2</div>
+                        </div>
+                        <span class="photo-number">2</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1086.JPG.jpeg" alt="Memory 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 3</div>
+                        </div>
+                        <span class="photo-number">3</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1087.JPG.jpeg" alt="Memory 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 4</div>
+                        </div>
+                        <span class="photo-number">4</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1088.JPG.jpeg" alt="Memory 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 5</div>
+                        </div>
+                        <span class="photo-number">5</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1089.JPG.jpeg" alt="Memory 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 6</div>
+                        </div>
+                        <span class="photo-number">6</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1090.JPG.jpeg" alt="Memory 7" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 7</div>
+                        </div>
+                        <span class="photo-number">7</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1091.JPG.jpeg" alt="Memory 8" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 8</div>
+                        </div>
+                        <span class="photo-number">8</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1092.JPG.jpeg" alt="Memory 9" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 9</div>
+                        </div>
+                        <span class="photo-number">9</span>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="IMG_1093.JPG.jpeg" alt="Memory 10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="gallery-placeholder" style="display:none;">
+                            <div class="gallery-placeholder-icon">📷</div>
+                            <div class="gallery-placeholder-text">Photo 10</div>
+                        </div>
+                        <span class="photo-number">10</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wishes Section -->
+        <section class="wishes-section">
+            <div class="wishes-bg-pattern"></div>
+            <div class="wishes-content">
+                <h2 class="wishes-title">My Birthday Wishes For You</h2>
+                <div class="wish-item">🌟 May this year bring you endless joy and laughter</div>
+                <div class="wish-item">💫 May all your dreams come true (even the weird ones)</div>
+                <div class="wish-item">🎈 May you always smile as brightly as you do now</div>
+                <div class="wish-item">🌈 May life surprise you with beautiful moments daily</div>
+                <div class="wish-item">❤️ May you always know how much you're loved, no matter the distance</div>
+                <div class="wish-item">🦋 May you spread your wings and fly higher than ever</div>
+                <div class="wish-item">🎁 May every day feel like your birthday!</div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-heart">💝</div>
+            <p class="footer-text">Happy Birthday, Saima!</p>
+            <p class="footer-subtext">Made with ❤️ by Puja | April 9th</p>
+            <p class="footer-subtext" style="margin-top: 12px; font-size: 13px; opacity: 0.75;">Here's to many more years of friendship, love, and unforgettable memories across the miles! 🥂</p>
+        </footer>
+
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Full size image">
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script>
+        // Lock Screen Functionality
+        function checkAnswer() {
+            const input = document.getElementById('answerInput');
+            const errorMsg = document.getElementById('errorMsg');
+            const answer = input.value.trim().toLowerCase();
+            
+            if (answer === 'puja') {
+                // Correct answer - unlock!
+                document.getElementById('lockScreen').classList.add('hidden');
+                setTimeout(() => {
+                    document.getElementById('mainContent').classList.add('show');
+                    startConfetti();
+                    createDecorations();
+                }, 600);
+            } else {
+                // Wrong answer
+                errorMsg.classList.add('show');
+                input.classList.add('shake');
+                input.style.borderColor = '#c77b7b';
+                
+                setTimeout(() => {
+                    input.classList.remove('shake');
+                }, 500);
+                
+                // Clear error after 3 seconds
+                setTimeout(() => {
+                    errorMsg.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('answerInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+        // Confetti Effect
+        function startConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const confettiPieces = [];
+            const colors = ['#d4af37', '#c9b8cc', '#b8a9c0', '#e8dff0', '#f0e8ec', '#d4c5c9'];
+
+            for (let i = 0; i < 120; i++) {
+                confettiPieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speed: Math.random() * 2.5 + 1.5,
+                    angle: Math.random() * 360,
+                    rotationSpeed: Math.random() * 8 - 4
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                confettiPieces.forEach(piece => {
+                    ctx.save();
+                    ctx.translate(piece.x, piece.y);
+                    ctx.rotate(piece.angle * Math.PI / 180);
+                    ctx.fillStyle = piece.color;
+                    ctx.globalAlpha = 0.75;
+                    ctx.fillRect(-piece.size / 2, -piece.size / 2, piece.size, piece.size);
+                    ctx.restore();
+
+                    piece.y += piece.speed;
+                    piece.angle += piece.rotationSpeed;
+
+                    if (piece.y > canvas.height) {
+                        piece.y = -20;
+                        piece.x = Math.random() * canvas.width;
+                    }
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            // Stop confetti after 15 seconds
+            setTimeout(() => {
+                canvas.style.opacity = '0';
+                setTimeout(() => {
+                    canvas.style.display = 'none';
+                }, 1500);
+            }, 15000);
+        }
+
+        // Floating Decorations
+        function createDecorations() {
+            const container = document.getElementById('decorations');
+            const emojis = ['🎈', '⭐', '💖', '🎀', '✨', '🌸', '💫', '🎉'];
+            
+            for (let i = 0; i < 16; i++) {
+                const decoration = document.createElement('div');
+                decoration.className = 'decoration';
+                decoration.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                decoration.style.left = Math.random() * 100 + '%';
+                decoration.style.top = Math.random() * 100 + '%';
+                decoration.style.animationDelay = Math.random() * 8 + 's';
+                decoration.style.fontSize = (Math.random() * 18 + 16) + 'px';
+                container.appendChild(decoration);
+            }
+
+            // Add sparkles
+            for (let i = 0; i < 24; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(sparkle);
+            }
+        }
+
+        // Lightbox functionality
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            if (img && img.src && !img.src.includes('your-image')) {
+                document.getElementById('lightboxImg').src = img.src;
+                document.getElementById('lightbox').classList.add('active');
+            }
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Resize handler for confetti
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('confetti-canvas');
+            if (canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        });
+    </script>
+
+</body>
+</html>
